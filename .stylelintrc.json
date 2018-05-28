@@ -1,0 +1,11 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "rules": {
+    "color-named": "never",
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "number-leading-zero": "never",
+    "shorthand-property-no-redundant-values": true,
+    "string-quotes": "single"
+  }
+}

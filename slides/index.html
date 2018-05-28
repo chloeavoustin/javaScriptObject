@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <title>Slide | Workshop JavaScript Object</title>
+
+    <meta charset="UTF-8"/>
+    <meta name="description"
+          content="In this workshop you can see how to manage sliders built with Slick."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Twitter Card meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@chloeavoustin">
+    <meta name="twitter:title" content="Workshop JavaScript Object">
+    <meta name="twitter:description" content="In this workshop you can see how to manage sliders built with Slick.">
+    <meta name="twitter:creator" content="@chloeavoustin">
+    <meta name="twitter:url" content="https://chloeavoustin.github.io/javascript-object/"/>
+    <meta name="twitter:domain" content="https://chloeavoustin.github.io/javascript-object/"/>
+    <!-- Twitter summary card with large image must be at least 280x150px -->
+    <meta name="twitter:image:src"
+          content="https://chloeavoustin.github.io/javascript-object/assets/images/social/image.jpg">
+    <!-- Open Graph meta -->
+    <meta property="og:title" content="Workshop JavaScript Object"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://chloeavoustin.github.io/javascript-object/"/>
+    <meta property="og:image"
+          content="https://chloeavoustin.github.io/javascript-object/assets/images/social/image.jpg"/>
+    <meta property="og:description" content="In this workshop you can see how to manage sliders built with Slick."/>
+    <meta property="og:site_name" content="Workshop JavaScript Object"/>
+    <meta property="author" content="@chloeavoustin"/>
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.css"
+          media="screen">
+    <link rel="stylesheet" href="../assets/styles/reset.css">
+    <link rel="stylesheet" href="../assets/styles/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script defer>
+        WebFont.load({
+            google: {
+                families: ['Quicksand:300,500', 'Yeseva One']
+            }
+        });
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bundle.js"></script>
+</head>
+<body class="workshop-slide">
+
+<div class="social">
+    <ul>
+        <li>
+            <a href="../" target="_blank" rel="noopener"
+               title="Go to the workshop"><span class="icon-chloeavoustin"></span></a>
+        </li>
+        <li>
+            <a href="https://github.com/chloeavoustin/javaScriptObject" target="_blank" rel="noopener"
+               title="Go to workshop repository on Github"><span class="icon-github"></span></a>
+        </li>
+    </ul>
+</div>
+
+<main id="fullPage" class="main">
+    <div id='install' class="screen">
+        <section>
+            <div class="background">
+                <h2>Workshop<br/>JS Object</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    1#Install.
+                </span>
+                <h3>Installation du projet avec<strong>Yarn & Grunt</strong></h3>
+                <ul>
+                    <li>Cloner le projet</li>
+                    <li>Se rendre dans le répertoire</li>
+                    <li>Lancer l'installation du projet:</li>
+                </ul>
+                <pre>$ make install</pre>
+                <ul>
+                    <li>Démarrer le workshop:</li>
+                </ul>
+                <pre>$ make start</pre>
+            </article>
+        </section>
+    </div>
+
+    <div id='objectif' class="screen">
+        <section>
+            <div class="background">
+                <h2>Sliders<br/>Manager</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    2#Objectif.
+                </span>
+                <h3>Utiliser un objet JavaScript pour créer <strong>un sliders manager</strong></h3>
+                <ul>
+                    <li>Configurer les sliders avec l'attribut data des balises HTML</li>
+                    <li>Cibler les sliders avec des classes différentes</li>
+                    <li>Transformer un JS procédural en JS object</li>
+                </ul>
+
+                <h4>Déroulement du workshop:</h4>
+                <p>Le fichier bundle.js va contenir le JavaScript de base que nous allons pas-à-pas transformer en
+                    JavaScript object</p>
+                <p><strong>/!\ Attention: </strong> tout le workshop se déroule dans le répertoire
+                    <strong>./sources/js/</strong>
+                </p>
+            </article>
+        </section>
+    </div>
+
+    <div id='procedural' class="screen">
+        <section>
+            <div class="background">
+                <h2>Step<br/>Procedural</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    3#Procedural.
+                </span>
+                <h3>Construction & Interaction avec les sliders <strong>sources/bundle.js</strong></h3>
+                <pre>$ make procedural</pre>
+                <p><strong>var sliders</strong><br/>Tableau des sélecteurs de slider.</p>
+                <p><strong>configureSlider()</strong><br/>Construit le JSON de configuration avec l'attribut data.</p>
+                <p><strong>configureResponsiveSlider()</strong><br/>Ajoute au JSON de configuration la partie
+                    responsive.</p>
+            </article>
+        </section>
+    </div>
+
+    <div id='object' class="screen">
+        <section>
+            <div class="background">
+                <h2>Step<br/>Object</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    4#Object.
+                </span>
+                <h3>Créer un objet pour contrôler l'application<strong>sources/bundle.js</strong></h3>
+                <pre>$ make object</pre>
+                <p><strong>$(document).ready( ... );</strong><br/>Permet UNIQUEMENT d'initialiser des objets.</p>
+                <p><strong>log()</strong><br/>Affiche des informations en console si debug est à
+                    true.<br/><strong>/!\</strong> Utilisée à chaque début de fonction, elle permet de contrôler
+                    l'efficacité et les performances du code.</p>
+
+                <p><strong>init()</strong><br/>Initialise l'objet en orchestrant le lancement des différentes
+                    méthodes.<br/><strong>/!\</strong> Ne contient que des appels de fonctions et des vérifications pour
+                    leur déclenchement.</p>
+
+            </article>
+        </section>
+    </div>
+
+    <div id='variables' class="screen">
+        <section>
+            <div class="background">
+                <h2>Step<br/>Variables</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    5#Variables.
+                </span>
+                <h3>Placer les variables globales dans l'objet<strong>sources/bundle.js</strong></h3>
+                <pre>$ make variables</pre>
+                <h4>Périmètre d'une variable</h4>
+                <ul>
+                    <li>La position d'une variable dépend de son utilisation.</li>
+                    <li>Deux variables qui ont le même périmètre d'utilisation peuvent être regroupées dans un même
+                        sous-objet.
+                    </li>
+                </ul>
+                <p><strong>/!\ Tips: </strong>la position des fonctions est similaire à celle des variables pour
+                    permettre de construire des "modules" indépendants et réutilisables facilement.</p>
+
+            </article>
+        </section>
+    </div>
+
+    <div id='conversion' class="screen">
+        <section>
+            <div class="background">
+                <h2>Step<br/>Conversion</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    6#Conversion.
+                </span>
+                <h3>Convertir l'initialisation des sliders<strong>sources/bundle.js</strong></h3>
+                <pre>$ make conversion</pre>
+                <ul>
+                    <li>Ajouter dans le sous-objet slider une fonction init()</li>
+                    <li>Reporter le contenu du $(document).ready() dans init()</li>
+                    <li>Corriger les noms des variables</li>
+                </ul>
+
+                <p><strong>/!\ Attention: </strong>pour ne pas se tromper avec le contenu de this, il est recommander
+                    d'utiliser les paramètres des fonctions</p>
+
+
+            </article>
+        </section>
+    </div>
+
+    <div id='custom' class="screen">
+        <section>
+            <div class="background">
+                <h2>Step<br/>Custom</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    7#Custom.
+                </span>
+                <h3>Migration de fonction dans l'objet slider<strong>sources/bundle.js</strong></h3>
+                <pre>$ make custom</pre>
+                <ul>
+                    <li>Ajouter dans le sous-objet slider une fonction</li>
+                    <li>Migrer le code de la fonction</li>
+                    <li>Corriger les noms des variables</li>
+                    <li>Corriger l'appel de la fonction</li>
+                </ul>
+
+                <p><strong>/!\ Tips: </strong>l'utilisation de paramèttes dans le JS procedural facilite la conversion
+                    des fonctions</p>
+            </article>
+        </section>
+    </div>
+
+    <div id='optimisation' class="screen">
+        <section>
+            <div class="background">
+                <h2>Step<br/>Optimisation</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    8#Optimisation.
+                </span>
+                <h3>Optimiser l'appel des éléments pour un gain de performance<strong>sources/bundle.js</strong></h3>
+                <pre>$ make optimisation</pre>
+                <ul>
+                    <li>Optimiser l'utilisation de $(element) avec la création d'objets slider</li>
+                    <li>Chaque slider sera stocké dans un tableau</li>
+                    <li>Chaque slider est un objet qui stock les différents élements, inutile de chercher dans le DOM à
+                        chaque fois
+                    </li>
+                    <li>La configuration du slider peut elle aussi être stockée pour simplifier les fonctions et leur
+                        utilisation
+                    </li>
+
+                </ul>
+            </article>
+        </section>
+    </div>
+
+    <div id='refactoring' class="screen">
+        <section>
+            <div class="background">
+                <h2>Step<br/>Refactoring</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    9#Refactoring.
+                </span>
+                <h3>Simplifier le code et créer des fonctions pour le code redondant<strong>sources/bundle.js</strong>
+                </h3>
+                <pre>$ make refactoring</pre>
+                <ul>
+                    <li>Cibler les morceaux de code répétitif</li>
+                    <li>Utiliser des paramètres pour les différences</li>
+                    <li>Créer une fonction pour mutualiser le code répétitif</li>
+                </ul>
+
+                <p><strong>/!\ Tips: </strong>Pour limiter la complexité des objets, le refactoring est important.</p>
+            </article>
+        </section>
+
+    </div>
+
+    <div id='es6' class="screen">
+        <section>
+            <div class="background">
+                <h2>Step<br/>JavaScript</h2>
+            </div>
+            <article>
+                <span class="big-title">
+                    10#JavaScript.
+                </span>
+                <h3>ECMASCRIPT 6 !<strong>sources/bundle.js</strong></h3>
+                <pre>$ make javascript</pre>
+                <ul>
+                    <li>Remplacer var par const ou let</li>
+                    <li>Utiliser les fonctions fléchés</li>
+                    <li>Simplifier l'écriture des méthodes</li>
+
+                </ul>
+                <p><strong>/!\ Attention: </strong>Ne pas oublier BABEL pour la rétrocompatibilité</p>
+            </article>
+            <footer>
+                <span>© Chloé Avoustin, 2018</span>
+            </footer>
+        </section>
+    </div>
+</main>
+</body>
+</html>
