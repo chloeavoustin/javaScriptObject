@@ -1,0 +1,424 @@
+// Color
+// ---------------------------
+
+$primary: #070121;
+$secondary: #d95b24;
+$white: #ffffff;
+
+// Font
+// ---------------------------
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('../../assets/fonts/icomoon.ttf?1t4lyp') format('truetype'),
+  url('../../assets/fonts/icomoon.woff?1t4lyp') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$icon-chloeavoustin: \e903;
+$icon-linkedin: \e900;
+$icon-twitter: \e901;
+$icon-github: \e902;
+
+[class^='icon-'],
+[class*=' icon-'] {
+  font-family: 'icomoon', sans-serif;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@function unicode($str) {
+  @return unquote('\'') + $str + unquote('\'');
+}
+
+.icon-chloeavoustin {
+  font-size: .7em;
+
+  &:before {
+    content: unicode($icon-chloeavoustin);
+  }
+}
+
+.icon-linkedin {
+  &:before {
+    content: unicode($icon-linkedin);
+  }
+}
+
+.icon-twitter {
+  &:before {
+    content: unicode($icon-twitter);
+  }
+}
+
+.icon-github {
+  &:before {
+    content: unicode($icon-github);
+  }
+}
+
+// Tag
+// ---------------------------
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: .875em;
+  line-height: 1.3;
+  font-weight: 300;
+  color: $primary;
+}
+
+h1 {
+  font-family: 'Yeseva One', cursive;
+  font-size: 1.43em;
+  text-align: left;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  z-index: 3;
+  color: $white;
+  padding: 20px;
+  text-align: right;
+  width: auto;
+  opacity: 1;
+  font-size: .7em;
+  right: 0;
+}
+
+article {
+  padding: 0 100px 0 140px;
+
+  h3 {
+    font-weight: 500;
+    padding-left: 40px;
+    margin-bottom: 40px;
+    font-size: 1.86em;
+    margin-top: -55px;
+
+    strong {
+      display: block;
+      color: $secondary;
+    }
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+// Class and Id
+// ---------------------------
+
+.big-title {
+  font-family: 'Yeseva One', cursive;
+  font-size: 7.13em;
+  opacity: .05;
+}
+
+.background {
+  background: url('../../assets/images/background.jpg') no-repeat center;
+  background-size: cover;
+  color: $white;
+  font-family: 'Yeseva One', cursive;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+  height: 100%;
+  margin: 0;
+  font-size: 4.7em;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+}
+
+.workshop {
+  width: 60%;
+  margin: 90px 0;
+}
+
+.social {
+  position: fixed;
+  color: $white;
+  transition: all .3s ease;
+  font-size: 1.43em;
+  text-align: center;
+  left: 0;
+  width: auto;
+  top: 100px;
+  bottom: 0;
+  z-index: 2;
+
+  &:after {
+    left: 26px;
+    top: -100px;
+    width: 1px;
+    height: 100px;
+    background: $primary;
+    opacity: .1;
+    content: '';
+    display: block;
+    position: absolute;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 26px;
+    top: 80px;
+    width: 1px;
+    height: calc(100% - 80px);
+    background: $primary;
+    opacity: .1;
+  }
+
+  ul {
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    color: $primary;
+  }
+
+  li {
+    vertical-align: middle;
+    margin: 15px;
+    display: block;
+    a {
+      transition: all .3s ease;
+      opacity: .1;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.slider-container {
+  position: relative;
+
+  button {
+    -webkit-appearance: none;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    line-height: 16px;
+    border: 1px solid;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    transition: all .2s ease;
+    cursor: pointer;
+    outline: none;
+
+    &.next {
+      right: -30px;
+    }
+
+    &.prev {
+      left: -30px;
+    }
+
+    &:hover,
+    &:focus {
+      background: $secondary;
+    }
+  }
+
+  .slick-slider {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 40px;
+
+    .slick-slide {
+      height: auto;
+      outline: none;
+      cursor: pointer;
+
+      span {
+        background: $primary;
+        color: $white;
+        font-size: 1em;
+        line-height: 100px;
+        margin: 10px;
+        padding: 2%;
+        position: relative;
+        text-align: center;
+        display: block;
+        transition: all .2s ease;
+      }
+
+      &.slick-current {
+        span {
+          color: $secondary;
+          font-weight: 500;
+          font-size: 1.6em;
+        }
+      }
+    }
+
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+
+      li {
+        opacity: .5;
+        transition: all .2s ease;
+
+        &:hover {
+          opacity: .8;
+        }
+
+        &.slick-active {
+          opacity: 1;
+        }
+      }
+
+      button {
+        -webkit-appearance: none;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        text-indent: -6000px;
+        margin-right: 10px;
+        width: 14px;
+        height: 14px;
+        position: relative;
+
+        &:after {
+          content: '';
+          width: 100%;
+          height: 100%;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border: 1px solid $secondary;
+          border-radius: 50%;
+        }
+
+        &:before {
+          content: '';
+          width: 10px;
+          height: 10px;
+          display: block;
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          margin: 0 auto;
+          background: $secondary;
+          border-radius: 50%;
+        }
+      }
+    }
+
+  }
+}
+
+// Small Desktop
+// ---------------------------
+
+@media screen and (max-width: 1200px) {
+  footer {
+    color: $primary;
+    position: static;
+    text-align: center;
+  }
+
+  article {
+    h3 {
+      margin-top: -50px;
+    }
+  }
+
+  .workshop {
+    width: 100%;
+  }
+
+  .background {
+    position: static;
+    height: 400px;
+    width: 100%;
+  }
+
+  .social {
+    li {
+      a {
+        opacity: .8;
+      }
+    }
+  }
+
+  .big-title {
+    font-size: 6.4em;
+  }
+}
+
+// Mobile
+// ---------------------------
+@media screen and (max-width: 680px) {
+
+  article {
+    padding: 0 50px 0 80px;
+    margin: 50px;
+
+    h3 {
+      padding-left: 20px;
+      font-size: 1.12em;
+      margin-top: -25px;
+    }
+  }
+
+  .big-title {
+    font-size: 3.5em;
+  }
+
+  .background {
+    height: 300px;
+    font-size: 3.7em;
+  }
+
+  .slider-container {
+    .slick-slider {
+      .slick-slide {
+        &.slick-current {
+          span {
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+  }
+}
