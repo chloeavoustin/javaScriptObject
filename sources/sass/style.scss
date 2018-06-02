@@ -100,6 +100,16 @@ a {
   color: inherit;
 }
 
+pre {
+  background: $primary;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: $white;
+  max-width: 100%;
+  overflow: scroll;
+  line-height: 2;
+}
+
 footer {
   position: fixed;
   bottom: 0;
@@ -131,8 +141,39 @@ article {
     }
   }
 
+  h4 {
+    margin: 40px 0 20px;
+    font-size: 1.15em;
+    font-weight: 500;
+  }
+
   p {
     margin-bottom: 20px;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  ul {
+    margin-bottom: 20px;
+    li {
+      position: relative;
+      padding-left: 20px;
+      line-height: 2;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        background: $secondary;
+        border-radius: 50%;
+      }
+    }
   }
 }
 
@@ -207,6 +248,7 @@ article {
     position: relative;
     background: transparent;
     color: $primary;
+    line-height: .7;
   }
 
   li {
@@ -297,6 +339,10 @@ article {
         opacity: .5;
         transition: all .2s ease;
 
+        &:before {
+          display: none;
+        }
+
         &:hover {
           opacity: .8;
         }
@@ -347,7 +393,49 @@ article {
   }
 }
 
-// Small Desktop
+// Desktop
+// ---------------------------
+
+@media screen and (min-width: 1024px) {
+  .screen {
+    article {
+      p,ul,pre,h4 {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+// Desktop XL
+// ---------------------------
+
+@media screen and (min-width: 1200px) {
+  .screen {
+    section {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      height: 100%;
+
+      > * {
+        width: 60%;
+      }
+      
+      .background {
+        position: relative;
+        width: 40%;
+        align-self: stretch;
+      }
+    }
+
+    footer {
+      position: absolute;
+    }
+  }
+}
+
+// Desktop XS
 // ---------------------------
 
 @media screen and (max-width: 1200px) {
@@ -358,9 +446,15 @@ article {
   }
 
   article {
+    margin: 100px 0;
+
     h3 {
-      margin-top: -50px;
+      margin-top: -40px;
     }
+  }
+
+  .screen {
+    height: auto !important;
   }
 
   .workshop {
@@ -382,7 +476,7 @@ article {
   }
 
   .big-title {
-    font-size: 6.4em;
+    font-size: 5em;
   }
 }
 
@@ -419,6 +513,32 @@ article {
           }
         }
       }
+    }
+  }
+}
+
+// Mobile XS
+// ---------------------------
+@media screen and (max-width: 680px) {
+
+  article {
+    h3 {
+      font-size: 1em;
+    }
+  }
+
+  .big-title {
+    font-size: 2.8em;
+  }
+
+  .background {
+    height: 200px;
+    font-size: 3em;
+  }
+
+  .workshop-slide {
+    article {
+      padding: 0;
     }
   }
 }
