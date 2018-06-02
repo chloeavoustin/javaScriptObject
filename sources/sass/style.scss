@@ -116,26 +116,6 @@ footer {
   right: 0;
 }
 
-header {
-  padding: 40px 100px 40px 140px;
-  width: 60%;
-  background: $white;
-  z-index: 1;
-  transition: all .15s ease .2s;
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 105%;
-    transition: all .3s ease;
-    background: $primary;
-  }
-}
-
 article {
   padding: 0 100px 0 140px;
 
@@ -184,6 +164,7 @@ article {
 
 .workshop {
   width: 60%;
+  margin: 90px 0;
 }
 
 .social {
@@ -372,12 +353,6 @@ article {
 // ---------------------------
 
 @media screen and (max-width: 1200px) {
-
-  header {
-    width: 100%;
-    padding: 20px 100px 20px 140px;
-  }
-
   footer {
     color: $primary;
     position: static;
@@ -392,7 +367,6 @@ article {
 
   .workshop {
     width: 100%;
-    margin: 100px 0;
   }
 
   .background {
