@@ -11,6 +11,9 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-recommended": "^2.0.0",
     "grunt": "^1.0.1",
     "grunt-babel": "^7.0.0",
     "grunt-contrib-sass": "^1.0.0",
@@ -19,9 +22,9 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-csscomb": "^3.1.1",
     "grunt-postcss": "^0.9.0",
-    "eslint": "^4.19.1",
-    "eslint-config-google": "^0.9.1",
-    "eslint-config-recommended": "^2.0.0"
+    "stylelint": "^9.2.1",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-scss": "^3.1.0"
   },
   "dependencies": {
     "autoprefixer": "^8.2.0",

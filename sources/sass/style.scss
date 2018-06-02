@@ -3,16 +3,15 @@
 
 $primary: #070121;
 $secondary: #d95b24;
-$white: #FFF;
+$white: #ffffff;
 
 // Font
 // ---------------------------
 
 @font-face {
   font-family: 'icomoon';
-  src: url('../fonts/icomoon.ttf?1t4lyp') format('truetype'),
-  url('../fonts/icomoon.woff?1t4lyp') format('woff'),
-  url('../fonts/icomoon.svg?1t4lyp#icomoon') format('svg');
+  src: url('../../assets/fonts/icomoon.ttf?1t4lyp') format('truetype'),
+  url('../../assets/fonts/icomoon.woff?1t4lyp') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,8 +21,8 @@ $icon-linkedin: \e900;
 $icon-twitter: \e901;
 $icon-github: \e902;
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^='icon-'],
+[class*=' icon-'] {
   font-family: 'icomoon', sans-serif;
   speak: none;
   font-style: normal;
@@ -37,7 +36,7 @@ $icon-github: \e902;
 }
 
 @function unicode($str) {
-  @return unquote("\"") + $str + unquote("\"");
+  @return unquote('\'') + $str + unquote('\'');
 }
 
 .icon-chloeavoustin {
@@ -147,7 +146,7 @@ article {
 }
 
 .background {
-  background: url("../images/background.jpg") no-repeat center;
+  background: url('../../assets/images/background.jpg') no-repeat center;
   background-size: cover;
   color: $white;
   font-family: 'Yeseva One', cursive;
@@ -186,15 +185,14 @@ article {
     height: 100px;
     background: $primary;
     opacity: .1;
-    content: "";
+    content: '';
     display: block;
     position: absolute;
   }
 
   &:before {
-    content: "";
+    content: '';
     display: block;
-    background: $white;
     position: absolute;
     left: 26px;
     top: 80px;
@@ -269,14 +267,6 @@ article {
       outline: none;
       cursor: pointer;
 
-      &.slick-current {
-        span {
-          color: $secondary;
-          font-weight: 500;
-          font-size: 1.6em;
-        }
-      }
-
       span {
         background: $primary;
         color: $white;
@@ -288,6 +278,14 @@ article {
         text-align: center;
         display: block;
         transition: all .2s ease;
+      }
+
+      &.slick-current {
+        span {
+          color: $secondary;
+          font-weight: 500;
+          font-size: 1.6em;
+        }
       }
     }
 
