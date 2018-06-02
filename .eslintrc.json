@@ -1,0 +1,16 @@
+{
+  "extends": ["eslint:recommended", "google"],
+  "env": {
+    "amd": true,
+    "browser": true,
+    "jquery": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "max-len": ["error", { "code": 120 }],
+    "no-console": "off"
+  }
+}

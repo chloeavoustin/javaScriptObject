@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../sources/js/bundle.js"],"names":["$","document","ready","console","log"],"mappings":";;AAAA;;;AAGAA,EAAEC,QAAF,EAAYC,KAAZ,CAAkB,YAAY;AAC1BC,UAAQC,GAAR,CAAY,gBAAZ;AACH,CAFD","file":"bundle.js","sourcesContent":["/**\n * Do something when the DOM is ready\n */\n$(document).ready(function () {\n    console.log('DOM is Ready !');\n});\n"]}
