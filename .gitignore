@@ -21,5 +21,7 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
-# sass
+# Workshop
 .sass-cache/
+assets/js/
+assets/styles/style.css
