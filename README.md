@@ -2,9 +2,7 @@
 
 In this workshop you can see how to manage sliders built with [Slick](http://kenwheeler.github.io/slick/).
 
-## Requirement
-
-### Installation
+## Installation
 
 This workshop assumes that **Yarn**, **Grunt** and **SASS** are installed. Otherwise, you should have a look to [Install Yarn](https://yarnpkg.com/en/docs/install#mac-stable), [Install Grunt](https://gruntjs.com/installing-grunt) and [Install SASS](https://sass-lang.com/install).
 
@@ -25,8 +23,6 @@ This workshop is divided into nine steps, each step corresponds to the tag of th
 
 ### Steps
 
-#### Step List
-
 | Step Name | Description |
 | ------------- | ------------- |
 | `start` | Beginning of the workshop |
@@ -39,8 +35,8 @@ This workshop is divided into nine steps, each step corresponds to the tag of th
 | `refactoring` | **Step 7** : Simple function for simple maintenance |
 | `javascript`| **Step 8** : Convert your code in es6 |
 
-#### Go to step
 
 ```bash
+    # Go to specific step
     $ make [stepName]
 ```
