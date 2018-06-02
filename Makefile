@@ -11,7 +11,7 @@ install: ## Install dependencies and build assets
 build: ## Build assets
 	grunt build
 
-.PHONY: install
+.PHONY: install build
 
 ##
 ## ----------------------------------------------------------------------------
@@ -53,7 +53,6 @@ optimisation: ## Step 6 : Use object to boost performance
 	git checkout -- .
 	git checkout optimisation
 	grunt watch
-
 
 refactoring: ## Step 7 : Simple function for simple maintenance
 	git checkout -- .
