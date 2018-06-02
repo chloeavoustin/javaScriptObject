@@ -28,6 +28,24 @@ const $app = {
     },
 
     /**
+     * Object manager for all application parametters
+     */
+    config: {
+        debug: true,
+        breakpoint: {
+            tablette: 768,
+            mobile: 480,
+        },
+    },
+
+    /**
+     *  Object manager for all sliders
+     */
+    slider: {
+        selectors: ['.home-slider', '.event_slider'],
+    },
+
+    /**
      * Control all initialize function of application components
      */
     init: function() {
