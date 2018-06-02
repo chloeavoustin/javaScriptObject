@@ -14,10 +14,10 @@ module.exports = (grunt) => {
         js: {
             assets: 'js',
             sources: 'js',
-            exceptions: 'procedural-bundle.js',
+            exceptions: 'procedural-bundle',
         },
         jsFile: '<%= repo.sources %>/<%= js.sources %>/**/*.js',
-        jsExceptions: '!<%= repo.sources %>/<%= js.sources %>/<%= js.execptions %>.js',
+        jsExceptions: '!<%= repo.sources %>/<%= js.sources %>/<%= js.exceptions %>.js',
 
         extention: 'scss',
 
@@ -69,15 +69,26 @@ module.exports = (grunt) => {
             },
         },
 
+        concat: {
+            dist: {
+                src: ['<%= jsFile %>', '<%= jsExceptions %>'],
+                dest: '<%= repo.assets %>/<%= js.assets %>/bundle.js',
+            },
+        },
+
         babel: {
             options: {
                 sourceMap: true,
                 presets: ['env'],
             },
             dist: {
-                files: {
-                    '<%= repo.assets %>/<%= js.assets %>/bundle.js': ['<%= jsFile %>', '<%= jsExceptions %>'],
-                },
+                files: [{
+                    'expand': true,
+                    'cwd': '<%= repo.assets %>/<%= js.assets %>',
+                    'src': ['**/*.js'],
+                    'dest': '<%= repo.assets %>/<%= js.assets %>',
+                    'ext': '.js',
+                }],
             },
         },
 
@@ -90,7 +101,7 @@ module.exports = (grunt) => {
             },
             dist: {
                 files: {
-                    '<%= repo.assets %>/<%= js.assets %>/bundle.js': ['<%= repo.assets %>/<%= js.assets %>/**/*.js'],
+                    '<%= repo.assets %>/<%= js.assets %>/bundle.js': '<%= repo.assets %>/<%= js.assets %>/bundle.js',
                 },
             },
         },
@@ -108,7 +119,7 @@ module.exports = (grunt) => {
             },
             js: {
                 files: ['<%= jsFile %>', '<%= jsExceptions %>'],
-                tasks: ['babel', 'uglify'],
+                tasks: ['concat', 'babel', 'uglify'],
             },
         },
     });
@@ -120,6 +131,7 @@ module.exports = (grunt) => {
 
     grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('build', ['sass', 'csscomb', 'postcss', 'babel', 'uglify']);
+    grunt.registerTask('build', ['sass', 'csscomb', 'postcss', 'concat', 'babel', 'uglify']);
 };
