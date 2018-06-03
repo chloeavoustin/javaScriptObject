@@ -26,7 +26,7 @@ const $app = {
      * @param {*} context
      * @param {*} message
      */
-    log: function(context, message) {
+    log(context, message) {
         if (this.debug) {
             console.log(context + ': ' + message);
         }
@@ -58,10 +58,10 @@ const $app = {
             for (let i = 0; i < this.selectors.length; i++) {
                 let slider = this.selectors[i];
                 if (slider.length > 0) {
-                    $(slider).each(function(index, element) {
+                    $(slider).each((index, element) => {
                         $app.log('app.slider.init', ' ____ New slider');
                         this.buildSlider(this.createSlider(index, element));
-                    }.bind(this));
+                    });
                 }
             }
         },
@@ -73,7 +73,7 @@ const $app = {
          * @param {object} element
          * @return {object}
          */
-        createSlider: function(index, element) {
+        createSlider(index, element) {
             $app.log('slider', 'createSlider');
             this.allSliders[index] = Object.create(sliderObject);
             const slider = this.allSliders[index];
@@ -92,7 +92,7 @@ const $app = {
          * Build a slider
          * @param {object} slider
          */
-        buildSlider: function(slider) {
+        buildSlider(slider) {
             $app.log('app.slider', 'buildSlider');
             slider.$element.slick(slider.$config);
 
@@ -104,7 +104,7 @@ const $app = {
          * Set global parameters for a slider instance
          * @param {object} slider
          */
-        configureSlider: function(slider) {
+        configureSlider(slider) {
             $app.log('app.slider', 'configureSlider');
             slider.$config = {
                 slidesToShow: slider.$element.data('slidestoshow'),
@@ -132,7 +132,7 @@ const $app = {
          * Set responsive parameters for a slider instance
          * @param {object} slider
          */
-        configureResponsiveSlider: function(slider) {
+        configureResponsiveSlider(slider) {
             $app.log('app.slider', 'configureResponsiveSlider');
             if (slider.$element.data('slidestoshow') > 2) {
                 slider.$config.responsive[0].settings.slidesToShow = 2;
@@ -155,9 +155,9 @@ const $app = {
          * @param {object} button
          * @param {string} action
          */
-        controlSlider: function(element, button, action) {
+        controlSlider(element, button, action) {
             $app.log('slider', 'controlSlider');
-            button.click(function() {
+            button.click(() => {
                 element.slick(action);
             });
         },
@@ -167,7 +167,7 @@ const $app = {
     /**
      * Control all initialize function of application components
      */
-    init: function() {
+    init() {
         this.log('app', 'init');
         this.slider.init();
     },
