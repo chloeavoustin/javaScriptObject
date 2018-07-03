@@ -110,8 +110,8 @@ const $app = {
             $app.log('app.slider', 'buildSlider');
             slider.$element.slick(slider.$config);
 
-            this.nextSlide(slider);
-            this.prevSlide(slider);
+            this.controlSlider(slider.$element, slider.$next, 'slickNext');
+            this.controlSlider(slider.$element, slider.$prev, 'slickPrev');
         },
 
         /**
@@ -163,25 +163,18 @@ const $app = {
         },
 
         /**
-         * Go to next slide
-         * @param {object} slider
+         * Make a slider action when user click on button
+         *
+         * @param {object} element
+         * @param {object} button
+         * @param {string} action
          */
-        nextSlide: function(slider) {
-            $app.log('app.slider', 'nextSlide');
-            slider.$next.click(function() {
-                slider.$element.slick('slickNext');
+        controlSlider: function(element, button, action) {
+            $app.log('slider', 'controlSlider');
+            button.click(function() {
+                element.slick(action);
             });
         },
 
-        /**
-         * Go to previous slide
-         * @param {object} slider
-         */
-        prevSlide: function(slider) {
-            $app.log('app.slider', 'prevSlide');
-            slider.$prev.click(function() {
-                slider.$element.slick('slickPrev');
-            });
-        },
     },
 };
