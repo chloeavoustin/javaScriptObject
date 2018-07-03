@@ -7,6 +7,20 @@ $(document).ready(function() {
 });
 
 /**
+ * Slider Object
+ *
+ * @type {object}
+ */
+const sliderObject = {
+    $element: null,
+    $config: null,
+    $container: null,
+    $next: null,
+    $prev: null,
+};
+
+
+/**
  * Application object
  *
  * @namespace
@@ -48,6 +62,7 @@ const $app = {
      */
     slider: {
         selectors: ['.home-slider', '.event_slider'],
+        allSliders: [],
 
         /**
          * Initialize each slider
@@ -59,38 +74,58 @@ const $app = {
                 if (slider.length > 0) {
                     $(slider).each(function(index, element) {
                         $app.log('app.slider.init', ' ____ New slider');
-                        this.buildSlider(element);
+                        this.buildSlider(this.createSlider(index, element));
                     }.bind(this));
                 }
             }
         },
 
         /**
-         * Build a slider
+         ** Set a slider instance
+         *
+         * @param {number} index
          * @param {object} element
+         * @return {object}
          */
-        buildSlider: function(element) {
-            $app.log('app.slider', 'buildSlider');
-            $(element).slick(this.configureSlider(element));
+        createSlider: function(index, element) {
+            $app.log('slider', 'createSlider');
+            this.allSliders[index] = Object.create(sliderObject);
+            const slider = this.allSliders[index];
 
-            this.prevSlide(element);
-            this.nextSlide(element);
+            slider.$element = $(element);
+            slider.$container = slider.$element.parent();
+            slider.$next = slider.$container.find('.next');
+            slider.$prev = slider.$container.find('.prev');
+
+            this.configureSlider(slider);
+
+            return slider;
+        },
+
+        /**
+         * Build a slider
+         * @param {object} slider
+         */
+        buildSlider: function(slider) {
+            $app.log('app.slider', 'buildSlider');
+            slider.$element.slick(slider.$config);
+
+            this.nextSlide(slider);
+            this.prevSlide(slider);
         },
 
         /**
          * Set global parameters for a slider instance
-         * @param {object} element
-         *
-         * @return {object} config
+         * @param {object} slider
          */
-        configureSlider: function(element) {
+        configureSlider: function(slider) {
             $app.log('app.slider', 'configureSlider');
-            const config = {
-                slidesToShow: $(element).data('slidestoshow'),
-                adaptiveHeight: $(element).data('adaptiveheight'),
-                centerMode: $(element).data('centermode'),
-                centerPadding: $(element).data('centerpadding') + 'px',
-                dots: $(element).data('dots'),
+            slider.$config = {
+                slidesToShow: slider.$element.data('slidestoshow'),
+                adaptiveHeight: slider.$element.data('adaptiveheight'),
+                centerMode: slider.$element.data('centermode'),
+                centerPadding: slider.$element.data('centerpadding') + 'px',
+                dots: slider.$element.data('dots'),
                 arrows: false,
                 responsive: [
                     {
@@ -104,61 +139,48 @@ const $app = {
                 ],
             };
 
-            return this.configureResponsiveSlider(element, config);
+            this.configureResponsiveSlider(slider);
         },
 
         /**
          * Set responsive parameters for a slider instance
-         * @param {object} element
-         * @param {object} config
-         *
-         * @return {object} config
+         * @param {object} slider
          */
-        configureResponsiveSlider: function(element, config) {
+        configureResponsiveSlider: function(slider) {
             $app.log('app.slider', 'configureResponsiveSlider');
-            if ($(element).data('slidestoshow') > 2) {
-                config.responsive[0].settings.slidesToShow = 2;
-                config.responsive[1].settings.slidesToShow = 1;
+            if (slider.$element.data('slidestoshow') > 2) {
+                slider.$config.responsive[0].settings.slidesToShow = 2;
+                slider.$config.responsive[1].settings.slidesToShow = 1;
             }
 
-            if ($(element).data('centerpadding') > 40) {
-                config.responsive[0].settings.centerPadding = '40px';
+            if (slider.$element.data('centerpadding') > 40) {
+                slider.$config.responsive[0].settings.centerPadding = '40px';
             }
 
-            if ($(element).data('centerpadding') > 20) {
-                config.responsive[1].settings.centerPadding = '20px';
+            if (slider.$element.data('centerpadding') > 20) {
+                slider.$config.responsive[1].settings.centerPadding = '20px';
             }
-
-            return config;
         },
 
         /**
          * Go to next slide
-         * @param {object} element
+         * @param {object} slider
          */
-        nextSlide: function(element) {
+        nextSlide: function(slider) {
             $app.log('app.slider', 'nextSlide');
-            const slider = $(element);
-            const container = slider.parent();
-            const next = container.find('.next');
-
-            next.click(function() {
-                slider.slick('slickNext');
+            slider.$next.click(function() {
+                slider.$element.slick('slickNext');
             });
         },
 
         /**
          * Go to previous slide
-         * @param {object} element
+         * @param {object} slider
          */
-        prevSlide: function(element) {
+        prevSlide: function(slider) {
             $app.log('app.slider', 'prevSlide');
-            const slider = $(element);
-            const container = slider.parent();
-            const prev = container.find('.prev');
-
-            prev.click(function() {
-                slider.slick('slickPrev');
+            slider.$prev.click(function() {
+                slider.$element.slick('slickPrev');
             });
         },
     },
