@@ -12,8 +12,6 @@ $(document).ready(function() {
  * @namespace
  */
 const $app = {
-    debug: true,
-
     /**
      * Log something in console
      *
@@ -21,9 +19,27 @@ const $app = {
      * @param {*} message
      */
     log: function(context, message) {
-        if (this.debug) {
+        if (this.config.debug) {
             console.log(context + ': ' + message);
         }
+    },
+
+    /**
+     * Object manager for all application parameters
+     */
+    config: {
+        debug: true,
+        breakpoint: {
+            tablette: 768,
+            mobile: 480,
+        },
+    },
+
+    /**
+     *  Object manager for all sliders
+     */
+    slider: {
+        selectors: ['.home-slider', '.event_slider'],
     },
 
     /**
